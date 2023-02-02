@@ -240,7 +240,11 @@ class _CameraWidgetBuilder extends State<CameraAwesomeBuilder>
 
   @override
   void didChangeDependencies() {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setPreferredOrientations([
+      Platform.isAndroid
+          ? DeviceOrientation.landscapeLeft
+          : DeviceOrientation.landscapeRight
+    ]);
     super.didChangeDependencies();
   }
 
